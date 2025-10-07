@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="od3zza" />
+  <meta name="description"
+    content="The Next Catch is an interactive web app for Pokémon collectors and fans. Each click on 'Search for a Pokémon' reveals a new Pokémon you can catch and add to your collection." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="https://raw.githubusercontent.com/msikma/pokesprite/master/items/ball/sport.png"
+    type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+  <title>The Next Catch</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2P0LMM59W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-Z2P0LMM59W');
+  </script>
+</head>
+
+<!--
+          )      (\_
+         ((    _/{  "-;
+          )).-' {{ ;'`
+         ( (  ;._ \\     
+ @od3zza is here.
+-->
+
+<body>
+
+  <!-- Modal: Nickname -->
+  <div id="nicknameModal" class="modal">
+    <div class="modal-content">
+      <h2>Welcome, Trainer!</h2>
+      <p>Enter your nickname:</p>
+      <input type="text" id="nicknameInput" placeholder="Your nickname" autocomplete="off" />
+      <button id="nicknameSubmit">Let's go!</button>
+      <p id="modalError" class="error-msg"></p>
+    </div>
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" src="assets/lofi.mp3" loop></audio>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Layout Container -->
+  <div class="container">
+    
+    <!-- Sidebar: My Collection -->
+<aside class="sidebar sidebar-panel">
+  <h2 class="collapsible">My Collection <span id="collectionCount">(0)</span></h2>
+  <div class="sidebar-content">
+    <p class="credits">
+      Upload your collection to find Pokémon you don't have yet.<br />
+      Supports .txt files like: <code>1 Pikachu BST 035</code>
+    </p>
+    <ul id="cardList"></ul>
+    <div class="collection-actions">
+      <input type="file" id="fileInput" accept=".txt" />
+      <button id="sendCollectionBtn" title="Send" style="display:none;">📤</button>
+      <button id="downloadCollectionBtn" title="Download">⬇️</button>
+      <button id="clearAllBtn" class="clear-icon" title="Clear All">🗑️</button>
+    </div>
+  </div>
+</aside>
+
+
+    <!-- Main: Game Area -->
+    <main class="main">
+      <h1>The Next Catch!</h1>
+      <button id="whatsNextBtn">SEARCH FOR A POKÉMON</button>
+      <div id="loader" class="pokeball-loader" style="display:none;"></div>
+      <div id="pokemonCard" class="card" style="display:none;"></div>
+      <button id="caughtBtn" style="display:none;">CAUGHT IT!</button>
+    </main>
+
+    <!-- Sidebar: Trainers -->
+<aside class="trainers sidebar-panel">
+  <h2 class="collapsible">Trainers</h2>
+  <div class="sidebar-content">
+    <div id="trainersLoader" class="pokeball-loader-trainers" style="display:none;"></div>
+    <ul id="trainersList"></ul>
+  </div>
+</aside>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <center>
+      <p>
+        Made with <img src="https://raw.githubusercontent.com/od3zza/MyNextCatch/refs/heads/main/assets/heart.png"
+          alt="heart icon"> by
+        <a href="https://github.com/od3zza" target="_blank" rel="noopener noreferrer">od3zza</a>
+      </p>
+      <p>
+        Enjoying this webapp? 
+        <a href="https://ko-fi.com/od3zza" target="_blank" rel="noopener noreferrer">
+          Buy me a potion 
+          <img src="https://raw.githubusercontent.com/od3zza/MyNextCatch/refs/heads/main/assets/hyper-potion.png"
+            alt="hyper potion icon">
+        </a>
+      </p>
+      <p class="credits">
+        Thanks to <a href="https://msikma.github.io/pokesprite/">@msikma</a> for the Pokesprite repository.<br />
+        Sprite images are © Nintendo / Creatures Inc. / GAME FREAK Inc.
+      </p>
+    </center>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
